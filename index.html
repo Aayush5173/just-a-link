@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Damini 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle, #ff9a9e, #fad0c4);
+  color: white;
+}
+
+/* 🎉 Title */
+h1 {
+  margin-top: 60px;
+  font-size: 3.5em;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 25px #ff4b5c; }
+}
+
+p {
+  font-size: 1.3em;
+}
+
+/* 🎈 Balloons */
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 60px;
+  height: 80px;
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+/* 🎇 Fireworks */
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(15); opacity: 0; }
+}
+
+/* 🎂 Cake */
+.cake {
+  font-size: 4em;
+  margin-top: 20px;
+}
+
+/* 🎁 Button */
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  color: #ff4b5c;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday Damini 🎉</h1>
+<p>Hope your day is as amazing as you 😄💖</p>
+
+<div class="cake">🎂✨</div>
+
+<button onclick="startParty()">Start Celebration 🎉</button>
+
+<!-- 🎶 Real Happy Birthday Song -->
+<audio id="music" loop>
+  <source src="song.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+// 🎈 Balloons everywhere
+for (let i = 0; i < 30; i++) {
+  let b = document.createElement("div");
+  b.className = "balloon";
+  b.style.left = Math.random() * 100 + "vw";
+  b.style.background = `hsl(${Math.random()*360}, 70%, 60%)`;
+  b.style.animationDuration = (4 + Math.random()*4) + "s";
+  document.body.appendChild(b);
+}
+
+// 🎇 Fireworks
+function createFirework() {
+  let x = Math.random() * window.innerWidth;
+  let y = Math.random() * window.innerHeight / 2;
+
+  for (let i = 0; i < 20; i++) {
+    let f = document.createElement("div");
+    f.className = "firework";
+    f.style.left = x + "px";
+    f.style.top = y + "px";
+    f.style.background = `hsl(${Math.random()*360}, 70%, 60%)`;
+    document.body.appendChild(f);
+
+    setTimeout(() => f.remove(), 1000);
+  }
+}
+
+// 🎉 Start full party
+function startParty() {
+  document.getElementById("music").play();
+
+  setInterval(() => {
+    createFirework();
+  }, 700);
+
+  alert("Hey Damini 😄\n\nThis little surprise is just for you 💖🎂\nEnjoy your special day 🎉😏");
+}
+
+</script>
+
+</body>
+</html>
